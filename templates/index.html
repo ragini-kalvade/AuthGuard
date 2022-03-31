@@ -1,0 +1,125 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="colored-section" id="tagline">
+  <div class="container-fluid pt-0">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="big-heading" id="type">Welcome to the Multi-Identity Authentication Framework</h1>
+      </div>      
+    </div>
+  </div>
+</section>
+  <section class="white-section" id="features">
+    <div class="container-fluid">
+      <div class="row blog-head" style="font-size: 20px;">
+        <div class="feature-box col-lg-4">
+          <i class="icon fa fa-user fa-4x"></i>
+          <h3 class="feature-title">User Authentication</h3>
+          <p>First step in the verification of identity</p>
+        </div>
+        <div class="feature-box col-lg-4">
+          <i class="icon fa fa-signature fa-4x"></i>
+          <h3 class="feature-title">Signature Recognition & Verification</h3>
+          <p>Determine whether the signature is real or not</p>
+        </div>
+        <div class="feature-box col-lg-4">
+          <i class="icon fa fa-camera fa-4x"></i>
+          <h3 class="feature-title">Face Detection & Recognition</h3>
+          <p>Face comparison between the real face and photo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+
+  <section class="colored-section" id="testimonials">
+
+    <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active container-fluid">
+          <h4 class="testimonial-text">The problem identified is that the verification of the identity requires using a two level framework, firstly through signature and then cross comparing the real time face to ID photo.</h4>
+          <!-- <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile"> -->
+          <!-- <em>Berkeley U</em> -->
+        </div>
+        <div class="carousel-item container-fluid">
+          <h4 class="testimonial-text">Signature Recognition and Validation is the process of authenticating the person’s identity by checking his signature against samples which are previously collected. It also involves forgery detection.</h4>
+          <!-- <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile"> -->
+          <!-- <em>Beverly, Illinois</em> -->
+        </div>
+        <div class="carousel-item container-fluid">
+          <h4 class="testimonial-text">Facial comparison is typically used where a trusted source image of the user is available to compare a real-time image against. The trusted source picture is usually extracted from an authenticated identity document such as a passport.</h4>
+          <!-- <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile"> -->
+          <!-- <em>Beverly, Illinois</em> -->
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Pricing -->
+
+  <section class="white-section" id="pricing">
+
+    <h2 class="section-heading blog-head" style="font-size: 40px;">Signature Verification</h2>
+    <p class="blog-head" style="font-size: 20px;">Steps</p>
+
+    <div class="row" style="font-size: 20px;">
+      <div class="pricing-column col-lg-3 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Step 1</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">-----------</h2>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-column col-lg-3 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Step 2</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">-----------</h2>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-column col-lg-3 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Step 3</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">-----------</h2>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-column col-lg-3 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Step 4</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">-----------</h2>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function myFunction() {
+      alert("Register/Login to thrift!");
+    }
+    
+    </script>
+
+{% endblock %}
