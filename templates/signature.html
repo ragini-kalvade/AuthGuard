@@ -5,8 +5,15 @@
     <div class="container-fluid">
       <div class="row">
         <div class="feature-box col-lg-6">
-          <i class="icon fas fa fa-eye fa-4x"></i><br>
-          <a class="feature-title" href="#"><button class="btn btn-lg btn-dark" type="button">Verify Signature</button></a>
+          <form action="signVerify" method="POST" style="margin: 0 auto;" enctype="multipart/form-data">
+            {% csrf_token %}
+              <label for="first_name" class="form-label">First Name</label>
+              <input type="text" name="first_name" class="form-control">
+              <label for="signature_v" class="form-label">Upload Signature for Verification:</label>
+              <input type="file" name="signature_v" accept="image/*" class="form-control">
+              <br>
+              <button type="submit" class="btn btn-secondary">Verify Signature</button><br>
+          </form>
         </div>
       </div>
     </div>

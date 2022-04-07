@@ -28,8 +28,8 @@ def register(request):
             else:
                 user=User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
                 user.save()
-                temp1=username+'_photo'
-                temp2=username+'_sign'
+                temp1=username+'_photo.jpg'
+                temp2=username+'_sign.jpg'
                 fss = FileSystemStorage() #location='/media/photos'
                 file = fss.save(temp1, photograph)
                 file_url = fss.url(file)
