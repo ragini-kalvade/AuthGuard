@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="white-section" id="homeblog">
+<section class="white-section" id="register">
     <div class="container-fluid">
-      <div class="row">
-        <div class="feature-box col-lg-6">
+        <div class="row card pb-1 pt-1" style="font-size:20px;">
           <form action="signVerify" method="POST" style="margin: 0 auto;" enctype="multipart/form-data">
             {% csrf_token %}
-              <label for="first_name" class="form-label">First Name</label>
-              <input type="text" name="first_name" class="form-control">
               <label for="signature_v" class="form-label">Upload Signature for Verification:</label>
               <input type="file" name="signature_v" accept="image/*" class="form-control">
               <br>
               <button type="submit" class="btn btn-secondary">Verify Signature</button><br>
           </form>
-        </div>
+        </div>     
+        <div class="row">
+          {% for message in messages %}
+          <h3 style='text-align:center'>{{message}}</h3>
+          {% endfor %}
       </div>
     </div>
   </section>
