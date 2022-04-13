@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="white-section" id="register">
+    <div class="container-fluid">
+        <div class="row card pb-1 pt-1" style="font-size:20px;">
+          <form action="faces" method="POST" style="margin: 0 auto;" enctype="multipart/form-data">
+            {% csrf_token %}
+              <label for="face_d" class="form-label">Upload image for detection :</label>
+              <br>
+              <input type="file" name="image_d" accept="image/*" class="form-control">
+              <br>
+              <button type="submit" class="btn btn-secondary">SUBMIT</button><br>
+            </form>
+            <form action="captureimage" method="post" style="margin: 0 auto;" enctype="multipart/form-data">
+              {% csrf_token %}
+                <label for="face_d" class="form-label">Capture image for detection :</label>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-secondary">CAPTURE</button><br>
+              </form>
+        </div>     
+        <div class="row">
+          {% for message in messages %}
+          <h3 style='text-align:center'>{{message}}</h3>
+          {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
