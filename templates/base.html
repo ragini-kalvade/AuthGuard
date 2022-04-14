@@ -39,6 +39,15 @@
               <li class="nav-item pr-0">
                 <a class="nav-link" href="{% url 'faces' %}">Facial Recognition</a>
               </li>
+              <li class="nav-item pr-0">
+                {% if a == 1 %}
+                <a class="nav-link" href="#">Authorised</a>
+                {% endif %}
+                {% if a == 0 %}
+                <a class="nav-link" href="#">Not Authorised</a>
+                {% endif %}
+                <!-- <a href="">{{a}}</a> -->
+              </li>
               {% endif %}
               <li class="nav-item pr-0">
                 <a class="nav-link" href="#footer">Contact</a>

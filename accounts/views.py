@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from .models import Verification
 from django.core.files.storage import FileSystemStorage
 # from .models import UserProfile
 # Create your views here.
@@ -18,6 +19,7 @@ def register(request):
         # usertype = request.POST['usertype']
         folder_p='photos/'
 
+       
         if password1==password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username taken')
@@ -27,7 +29,9 @@ def register(request):
                 return redirect('register')
             else:
                 user=User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
+                verify=Verification.objects.create(username=username, isFaceVerified=0,isSignatureVerified=0)
                 user.save()
+                verify.save()
                 temp1=username+'_photo.jpg'
                 temp2=username+'_sign.jpg'
                 fss = FileSystemStorage() #location='/media/photos'
@@ -46,6 +50,7 @@ def register(request):
                 # userprofile=UserProfile(is_renter=rent, is_thrifter=thrift)
                 # userprofile.save()
                 return redirect("login")
+                
         else:
             messages.info(request, 'Password not matched')
             return redirect('/')
@@ -61,6 +66,10 @@ def login(request):
         user=auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
+            verify = Verification.objects.get(username=username)
+            verify.isFaceVerified=0
+            verify.isSignatureVerified=0
+            verify.save()
             return redirect("/")
         else:
             messages.info(request, 'Invalid Credentials')

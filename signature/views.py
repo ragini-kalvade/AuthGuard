@@ -5,6 +5,7 @@ import skimage
 import cv2
 import metrics 
 from django.contrib import messages
+from accounts.models import Verification
 
 def remove_white_space(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -47,6 +48,9 @@ def signVerify(request):
             answer = 'Signature not matched'
         else:  
             answer = 'Signature matched'
+            verify=Verification.objects.get(username=username)
+            verify.isSignatureVerified=1
+            verify.save()
         messages.info(request, answer)
         return render(request, 'signature.html')
     else:
