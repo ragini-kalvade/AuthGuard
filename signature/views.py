@@ -39,12 +39,12 @@ def signVerify(request):
 
         #print(verifySignature)
         i = cv2.cvtColor(verifySignature,cv2.COLOR_BGR2RGB)
-        verifySignature = cv2.resize(cv2.cvtColor(i.copy(),cv2.COLOR_BGR2GRAY),(100,100))
-        userSignature = cv2.resize(cv2.cvtColor(userSignature,cv2.COLOR_BGR2GRAY),(100,100))
+        verifySignature = cv2.resize(cv2.cvtColor(i.copy(),cv2.COLOR_BGR2GRAY),(400,200))
+        userSignature = cv2.resize(cv2.cvtColor(userSignature,cv2.COLOR_BGR2GRAY),(400,200))
     
         SSIM_Value = skimage.metrics.structural_similarity(userSignature,verifySignature)
         
-        if(SSIM_Value < 0.8):
+        if(SSIM_Value < 0.75):
             answer = 'Signature not matched'
         else:  
             answer = 'Signature matched'

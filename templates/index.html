@@ -79,7 +79,7 @@
             <h3>Step 1</h3>
           </div>
           <div class="card-body">
-            <h2 class="price-text">-----------</h2>
+            <h2 class="price-text">Image Acquisition</h2>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
             <h3>Step 2</h3>
           </div>
           <div class="card-body">
-            <h2 class="price-text">-----------</h2>
+            <h2 class="price-text">Image Preprocessing</h2>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
             <h3>Step 3</h3>
           </div>
           <div class="card-body">
-            <h2 class="price-text">-----------</h2>
+            <h2 class="price-text">SSIM calculation</h2>
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@
             <h3>Step 4</h3>
           </div>
           <div class="card-body">
-            <h2 class="price-text">-----------</h2>
+            <h2 class="price-text">Result - Verified or not</h2>
         </div>
         </div>
       </div>
@@ -123,3 +123,17 @@
     </script>
 
 {% endblock %}
+
+{% block script %}
+<script>
+    var socket = new WebSocket('ws://' + window.location.host + '/users/');
+
+    socket.onopen = function open() {
+      console.log('WebSockets connection created.');
+    };
+
+    if (socket.readyState == WebSocket.OPEN) {
+      socket.onopen();
+    }
+  </script>
+{% endblock script %}

@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Signature Recognition</title>
+  <title>Multi Level Authentication System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -37,7 +37,7 @@
               {% endif %}
               {% if user.is_authenticated %}
               <li class="nav-item pr-0">
-                <a class="nav-link" href="{% url 'faces' %}">Facial Recognition</a>
+                <a class="nav-link" href="{% url 'faces' %}">Facial Verification</a>
               </li>
               <li class="nav-item pr-0">
                 {% if a == 1 %}
@@ -76,6 +76,9 @@
 
   {% block content %}
   {% endblock %}
+  <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+  {% block script %}{% endblock script %}
+
   <!-- Footer -->
 
   <footer class="colored-section" id="footer">

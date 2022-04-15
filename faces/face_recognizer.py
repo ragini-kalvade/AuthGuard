@@ -16,7 +16,7 @@ def face_recognizer():
         labels = {v: k for k, v in og_labels.items()}
 
     cap = cv2.VideoCapture(0)
-    cap.open(0, cv2.CAP_DSHOW)
+    #cap.open(0, cv2.CAP_DSHOW)
     while True:
         # Capture frame-by-frame
         ret, frame = cap.read()
