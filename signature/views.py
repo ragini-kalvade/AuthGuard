@@ -44,7 +44,7 @@ def signVerify(request):
     
         SSIM_Value = skimage.metrics.structural_similarity(userSignature,verifySignature)
         
-        if(SSIM_Value < 0.75):
+        if(SSIM_Value < 0.65):
             answer = 'Signature not matched'
         else:  
             answer = 'Signature matched'

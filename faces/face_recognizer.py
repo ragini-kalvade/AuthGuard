@@ -1,11 +1,18 @@
 import numpy as np
 import cv2
 import json
+from django.http import HttpResponse
+from django.shortcuts import render
+from .models import *
+from django.core.mail import EmailMessage
+
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'faces/FaceDetectionModel/cascades/data/haarcascade_frontalface_alt2.xml')
 eye_cascade = cv2.CascadeClassifier('faces/FaceDetectionModel/cascades/data/haarcascade_eye.xml')
 smile_cascade = cv2.CascadeClassifier('faces/FaceDetectionModel/cascades/data/haarcascade_smile.xml')
 
+
+#to capture video class
 
 def face_recognizer():
     recognizer = cv2.face.LBPHFaceRecognizer_create()

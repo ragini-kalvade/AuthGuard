@@ -4,15 +4,24 @@ import numpy as np
 import cv2
 import os 
 from . import views
+import json
+from django.http import HttpResponse
+from django.shortcuts import render
+from .models import *
+from django.core.mail import EmailMessage
 from faces import face_recognizer
 from faces import faces_train
 import glob
 import shutil
 import os
+from django.views.decorators import gzip
+from django.http import StreamingHttpResponse
+import cv2
+import threading
 
 
-# Create your views here.
 def faces(request):
+    
     #print(request.FILES)
     if request.method=='POST':
         username = None
@@ -29,7 +38,7 @@ def faces(request):
         dir_path = 'C:/Users/HP/Documents/SignatureRecognition/faces/FaceDetectionModel/images/'
         path = os.path.join(dir_path,directory)
         dst_dir = path+'.jpg'
-        print(dst_dir)
+        #print(dst_dir)
 
         if (os.path.isdir(path)== False):
             os.mkdir(path)
@@ -38,11 +47,10 @@ def faces(request):
         
         faces_train.train_faces()
         
-        face_recognizer.face_recognizer()
-        
         return render(request, 'base.html')
+    
     else:
-        return render(request, 'faces.html')
+        return render(request, 'faces.html') 
 
     
 
