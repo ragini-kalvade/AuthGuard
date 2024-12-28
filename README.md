@@ -5,3 +5,5 @@ A Multi-Level Identity authentication system is proposed which determines if the
 Signature Recognition and Validation is the process of authenticating the person’s identity by checking his signature against samples which are previously collected. Facial comparison is typically used where a trusted source image of the user is available to compare a real-time image against. The trusted source picture is usually extracted from an authenticated identity document such as a passport.
 
 [Project Report](Major_Project_Report.pdf)
+
+This project was developed in collaboration with Vanshika Agrawal as part of pair programming.
